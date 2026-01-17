@@ -1,8 +1,8 @@
 1: to review the history of this project on gemini visit this link
 
->> https://gemini.google.com/share/f75abed180a5
+>> https://gemini.google.com/share/continue/ba10e0497950
 > 
->
+> Note: Please update the above link each time you finish the chat with gemini to keep the link updated
 
 ### **Phase 3: Host on GitHub (The "Server")**
 
