@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin id="com.github.malaareda.apezonautomationsuite"
+            url="https://github.com/malaareda/apezon-automation-suite/raw/main/releases/apezon-automation-suite-0.0.1.zip"
+            version="0.0.1">
+        <name>Apezon Automation Suite</name>
+        <description>
+            <![CDATA[
+            <h3>Apezon Automation Suite</h3>
+            <ul>
+                <li><b>Combine Codes Script:</b> Merge code files into a single markdown file.</li>
+                <li><b>Directory Tree Script:</b> Generate markdown maps of your folder structure.</li>
+            </ul>
+            ]]>
+        </description>
+        <change-notes>Initial Release.</change-notes>
+    </plugin>
+</plugins>
