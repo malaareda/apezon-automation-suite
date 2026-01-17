@@ -1,7 +1,6 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.malaareda.apezonautomationsuite</id>
-    <name>apezon-automation-suite</name>
+    <name>Apezon Automation Suite</name>
     <vendor>malaareda</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,7 +8,56 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.malaareda.apezonautomationsuite.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <projectConfigurable
+                parentId="tools"
+                instance="com.github.malaareda.apezonautomationsuite.settings.ApezonGlobalSettingsConfigurable"
+                id="com.apezon.settings.global"
+                displayName="Apezon Automation Suite"/>
+
+        <projectConfigurable
+                parentId="com.apezon.settings.global"
+                instance="com.github.malaareda.apezonautomationsuite.settings.CombineCodesSettingsConfigurable"
+                id="com.apezon.settings.combine"
+                displayName="Combine Codes Script"/>
+
+        <projectConfigurable
+                parentId="com.apezon.settings.global"
+                instance="com.github.malaareda.apezonautomationsuite.settings.DirectoryTreeSettingsConfigurable"
+                id="com.apezon.settings.tree"
+                displayName="Directory Tree Script"/>
+
+        <toolWindow
+                id="Apezon Automation"
+                secondary="false"
+                anchor="right"
+                icon="com.github.malaareda.apezonautomationsuite.Icons.ApezonLogo"
+                factoryClass="com.github.malaareda.apezonautomationsuite.toolWindow.ApezonToolWindowFactory"/>
+
         <postStartupActivity implementation="com.github.malaareda.apezonautomationsuite.startup.MyProjectActivity" />
     </extensions>
+
+    <actions>
+        <group id="com.apezon.automation.MainGroup"
+               text="Apezon Tools"
+               popup="true"
+               icon="com.github.malaareda.apezonautomationsuite.Icons.ApezonLogo">
+
+            <add-to-group group-id="NavBarToolBar" anchor="first"/>
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="com.apezon.automation.CombineCodes"
+                    class="com.github.malaareda.apezonautomationsuite.actions.CombineCodesAction"
+                    text="Combine Codes Script"
+                    description="Open the Master Dialog to combine code files">
+            </action>
+
+            <action id="com.apezon.automation.DirectoryTree"
+                    class="com.github.malaareda.apezonautomationsuite.actions.DirectoryTreeAction"
+                    text="Directory Tree Script"
+                    description="Generate markdown maps of your folder structure">
+            </action>
+
+        </group>
+    </actions>
 </idea-plugin>
