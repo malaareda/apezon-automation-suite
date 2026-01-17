@@ -81,3 +81,39 @@ Now you can go to any computer or IDE to install it.
 5.  Push the XML change.
 
 6.  Your IDE will automatically suggest the update!
+
+
+++++++++++++++++++++++++++++++
+
+### **Configure IntelliJ (One-Time Setup)**
+
+Now, tell jetbrains IDE where to look for updates.
+
+1.  Open IntelliJ IDEA.
+2.  Go to **Settings** (Ctrl+Alt+S) > **Plugins**.
+3.  Click the **Gear Icon** (⚙️) at the top right > **Manage Plugin Repositories...**
+4.  Click the **\+ (Plus)** button.
+5.  Add this URL: [https://raw.githubusercontent.com/malaareda/apezon-automation-suite/refs/heads/main/updatePlugins.xml](https://raw.githubusercontent.com/malaareda/apezon-automation-suite/refs/heads/main/updatePlugins.xml)
+6.  Click **OK**.
+
+### **Step 4: Verify Installation**
+
+1.  Go back to the **Marketplace** tab in the Plugins window.
+2.  Search for **"Apezon"**.
+3.  You should see your plugin listed. Click **Install**.
+
++++++++++++++++++++++++++
+
+### **How to Release Version 0.0.2 (Future Workflow)**
+
+When you make changes and want to update the plugin:
+
+1.  **Build:** Run gradle buildPlugin.
+2.  **Copy:** Copy the new .zip to your local releases folder.
+3.  **Update XML:**
+
+    *   Change version="0.0.1" to version="0.0.2".
+    *   Change the url to point to .../apezon-automation-suite-0.0.2.zip.
+
+4.  **Push:** Commit and push both the new .zip and the updated updatePlugins.xml to GitHub.
+5.  **Auto-Update:** IntelliJ will automatically detect the new version (usually on restart or when checking for updates) and prompt you to update.
